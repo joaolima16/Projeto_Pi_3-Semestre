@@ -1,2 +1,5 @@
-com\mycompany\projeto_pi\JakartaRestConfiguration.class
+Teste.class
 com\mycompany\projeto_pi\resources\JakartaEE8Resource.class
+ENUM\Category.class
+model\Product.class
+com\mycompany\projeto_pi\JakartaRestConfiguration.class
