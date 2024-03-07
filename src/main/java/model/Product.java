@@ -6,16 +6,20 @@ public class Product {
 
     private String name;
     private double unitaryValue;
+    private int stock;
     private Category category;
+    private String imgUrl;
 
     public Product() {
 
     }
 
-    public Product(String name, double unitaryValue, Category category) {
+    public Product(String name, double unitaryValue, int stock, Category category, String imgUrl) {
         this.name = name;
         this.unitaryValue = unitaryValue;
         this.category = category;
+        this.stock = stock;
+        this.imgUrl = imgUrl;
     }
 
     public String getName() {
@@ -42,4 +46,19 @@ public class Product {
         this.category = category;
     }
 
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 }
