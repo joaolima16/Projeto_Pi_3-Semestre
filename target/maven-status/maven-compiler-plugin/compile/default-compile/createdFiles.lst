@@ -1,7 +1,0 @@
-DAO\ProductDAO.class
-controller\Product.class
-com\mycompany\projeto_pi\resources\JakartaEE8Resource.class
-model\Product.class
-com\mycompany\projeto_pi\JakartaRestConfiguration.class
-ENUM\Category.class
-DAO\DbConnection.class
