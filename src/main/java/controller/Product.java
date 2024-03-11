@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author João Vitor
  */
-@WebServlet(name = "Product", urlPatterns = {"/Product"})
+@WebServlet(name = "Product", urlPatterns = {"/Product", "/Products"})
 public class Product extends HttpServlet {
 
     public ProductDAO productDao = new ProductDAO();
@@ -44,7 +45,10 @@ public class Product extends HttpServlet {
             throws ServletException, IOException {
             String action = request.getServletPath();
             if(action.equals("/Product")){
-          
+                
+            }
+            if(action.equals("/Products")){
+                listenProducts(request, response);
             }
     }
 
@@ -58,7 +62,9 @@ public class Product extends HttpServlet {
     }
     protected void listenProducts(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
         List<model.Product> lsProducts = productDao.listenProducts();
-        
+        request.setAttribute("teste", lsProducts);
+        RequestDispatcher rd = request.getRequestDispatcher("teste.jsp");
+        rd.forward(request, response);
     }
     
     @Override

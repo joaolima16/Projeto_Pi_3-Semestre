@@ -39,8 +39,8 @@ public class ProductDAO {
                 double value = rs.getDouble(3);
                 String category = rs.getString(5);
                 int stock = rs.getInt(4);
-                String img_ur = rs.getString(6);
-                lsProducts.add(new Product(name_product, value, stock, Category.valueOf(category), img_ur));
+                String img_url = rs.getString(6);
+                lsProducts.add(new Product(name_product, value, stock, Category.valueOf(category), img_url));
 
             }
             return lsProducts;
