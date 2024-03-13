@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 public class DbConnection {
 
     public Connection connection() throws ClassNotFoundException {
-        Connection conn = null;
+        Connection conn;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1/pi_teste", "root", "");
@@ -22,14 +22,12 @@ public class DbConnection {
     }
 
     public PreparedStatement statement(String sql) {
-        Connection conn = null;
+        Connection conn;
         try {
             conn = connection();
             PreparedStatement stmt = conn.prepareStatement(sql);
             return stmt;
-        } catch (SQLException ex) {
-            throw new Error(ex);
-        } catch (ClassNotFoundException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             throw new Error(ex);
         }
 
