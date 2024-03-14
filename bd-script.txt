@@ -1,0 +1,29 @@
+create database pi_teste;
+use pi_teste;
+create table produto(
+id int auto_increment primary key,
+nome varchar(60) not null,
+vlr_unitario decimal(10,4) not null,
+quantidade tinyint not null,
+categoria enum('COMPUTADOR', 'CELULAR','PERIFERICO','ELETRODOMESTICO'),
+img_url text(500)  not null
+);
+create table endereco(
+id_endereco int auto_increment primary key,
+bairro varchar(30),
+logradouro varchar(60),
+uf varchar(5)
+);
+create table usuario(
+id int auto_increment primary key,
+nome varchar(60) not null,
+cpf char(11) not null unique, 
+email varchar(100) not null,
+senha varchar(15) not null,
+genero enum('M','F'),
+id_endereco int,
+foreign key(id_endereco) references endereco(id_endereco)
+);
+INSERT INTO PRODUTO values(default, 'Ryzen 5',55.50,10, 'COMPUTADOR', 'https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcR0_vdMNnsNJWPONGaED82ax4wn0A1jlIfFNFWbGJvhUC1uNjcmf2KfbWi9Kk2cpdBKiWrr9Y8IocWsc23DHolkxVoP8-hQL-z6JvPrWOw7FyC1nTmXY7euv8Jka_Qavd7wm5SsmA&usqp=CAc');
+
+INSERT INTO PRODUTO values(default, 'Ryzen 5',55.50,10, 'COMPUTADOR', 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSVdpXCOYcaJmFYoQZlEb3-wfvnokFnRnQpIeui6q04nFpn4CHquGlKaO0S1ODh4s_juzmIrwRC22VnObx5Iox18ThWT9JKB9EEhMExprsm_FvV5lCrkwC02r65&usqp=CAc');
